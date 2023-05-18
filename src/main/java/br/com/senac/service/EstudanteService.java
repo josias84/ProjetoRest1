@@ -46,6 +46,16 @@ public class EstudanteService {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 	}
 	
+	public ResponseEntity<String> removerUsuario(Long id){
+		if(estudanteRepository.existsById(id)) {
+			estudanteRepository.deleteById(id);
+			return ResponseEntity.status(HttpStatus.OK).body("Estudante excluído com sucesso");
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Estudante não existe!");
+	}
+	
+	
+	
 	
 	
 
