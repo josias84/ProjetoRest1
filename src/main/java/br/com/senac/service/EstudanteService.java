@@ -38,6 +38,13 @@ public class EstudanteService {
 		return ResponseEntity.status(HttpStatus.CREATED).body(est);
 	}
 	
+	public ResponseEntity<Estudante> atualizarEstudante(Long id, Estudante estudante){
+		if(estudanteRepository.existsById(id)) {
+			Estudante est = estudanteRepository.save(estudante);
+			return ResponseEntity.status(HttpStatus.OK).body(est);
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+	}
 	
 	
 	
