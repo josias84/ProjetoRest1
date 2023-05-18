@@ -33,6 +33,13 @@ public class EstudanteService {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
 	}
 	
+	public ResponseEntity<Estudante> cadastrarEstudante(Estudante estudante){
+		Estudante est = estudanteRepository.save(estudante);
+		return ResponseEntity.status(HttpStatus.CREATED).body(est);
+	}
+	
+	
+	
 	
 
 
